@@ -30,7 +30,11 @@ io.on("connection", (socket) => {
         //broadcast to all users of that room only
         socket.broadcast.to(user.room).emit("message", formatMessage(botName, `${username} has joined the chat!`));
         
-        
+        //update users and room info in the sidebar
+        io.to(user.room).emit("updateRoomUsers", {
+            room: user.room,
+            users: getUsersOfRoom(user.room)
+        });
     
     });
 
@@ -39,8 +43,13 @@ io.on("connection", (socket) => {
         var userWhoLeft = userLeft(socket.id);
         if(userWhoLeft)
         {
-            io.to(userWhoLeft.room).emit("message", `${userWhoLeft.username} has left the chat`);
+            io.to(userWhoLeft.room).emit("message", formatMessage(botName,`${userWhoLeft.username} has left the chat.`));
 
+            //update users and room info in the sidebar
+            io.to(userWhoLeft.room).emit("updateRoomUsers", {
+            room: userWhoLeft.room,
+            users: getUsersOfRoom(userWhoLeft.room)
+        });
         }
     });
 

@@ -1,5 +1,7 @@
 const chatFormElem = document.getElementById("chat-form");
 const chatMessagesElem = document.querySelector(".chat-messages");
+const roomNameElem = document.getElementById("room-name");
+const usersListElem = document.getElementById("users"); // this is a <ul> of users
 const {username, room} = Qs.parse(location.search,{
     ignoreQueryPrefix : true
 });
@@ -15,6 +17,11 @@ socket.on("message", (message) => {
     displayMessage(message);
     chatMessagesElem.scrollTop = chatMessagesElem.scrollHeight;
 
+});
+
+socket.on("updateRoomUsers", ({room, users}) => {
+    displayRoomName(room); //adding room name to chat page's DOM
+    displayRoomUsers(users); //
 });
 
 //what happens on sending a message
@@ -35,3 +42,13 @@ function displayMessage(msgStruct)
     document.querySelector(".chat-messages").appendChild(div)
 }
 
+function displayRoomName(room)
+{
+    roomNameElem.innerText = room;
+}
+
+//add users to the chat page's DOM (in the left panel)
+function displayRoomUsers(users)
+{
+    usersListElem.innerHTML = `${users.map(x => `<li>${x.username}</li>`).join("")}`;
+}
