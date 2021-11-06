@@ -26,3 +26,4 @@ function displayMessage(msgContent)
     <p class = "text">${msgContent}</p>`
     document.querySelector(".chat-messages").appendChild(div)
 }
+
