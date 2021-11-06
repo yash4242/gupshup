@@ -1,11 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 :root {
-	--dark-color-a: #667aff;
-	--dark-color-b: #7386ff;
-	--light-color: #e6e9ff;
-	--success-color: #5cb85c;
-	--error-color: #d9534f;
+	--dark-color-a: #4E0D3A;
+	--dark-color-b: #5D1049;
+	--light-color: white;
 }
 
 * {
@@ -50,8 +48,8 @@ a {
 .chat-header {
 	background: var(--dark-color-a);
 	color: #fff;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
 	padding: 15px;
 	display: flex;
 	align-items: center;
@@ -89,6 +87,7 @@ a {
 	padding: 30px;
 	max-height: 500px;
 	overflow-y: scroll;
+	background-image: url("../chat-bg.jpg");
 }
 
 .chat-messages .message {
@@ -114,6 +113,7 @@ a {
 .chat-form-container {
 	padding: 20px 30px;
 	background-color: var(--dark-color-a);
+	border-radius: 0px 0px 7px 7px;
 }
 
 .chat-form-container form {
@@ -138,13 +138,14 @@ a {
 	text-align: center;
 	padding: 20px;
 	background: var(--dark-color-a);
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
 }
 
 .join-main {
 	padding: 30px 40px;
 	background: var(--dark-color-b);
+	border-radius: 0px 0px 7px 7px;
 }
 
 .join-main p {
