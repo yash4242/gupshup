@@ -28,6 +28,10 @@ io.on("connection", (socket) => {
         io.emit("message", "someone has left the chat");
     });
 
+    socket.on("chatMessage", (msgRecvd) => {
+        io.emit("message", msgRecvd);
+    });
+
 });
 
 server.listen(PORT, () => {
