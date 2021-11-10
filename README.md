@@ -17,7 +17,7 @@ Real time Instant messaging app
 - Open a new tab, and enter `localhost:3000` again to join as another user.
 
 ## TODO
-[] Look up on how to run this on heroku
-[] setting up custom avatars for users
+- [] Look up on how to run this on heroku
+- [] setting up custom avatars for users
 
 PRs/suggestions are always welcome!
